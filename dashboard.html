@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JapanTrip2026 北海道路线方案比较</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #64748b;
+      --line: #d9e2ec;
+      --soft: #eef4fb;
+      --accent: #2563eb;
+      --green: #166534;
+      --green-bg: #dcfce7;
+      --yellow: #854d0e;
+      --yellow-bg: #fef3c7;
+      --purple: #5b21b6;
+      --purple-bg: #ede9fe;
+      --shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+    h1, h2, h3 { margin: 0; }
+    h1 { font-size: 28px; line-height: 1.2; }
+    h2 { font-size: 21px; margin-bottom: 14px; }
+    h3 { font-size: 17px; line-height: 1.35; }
+    p { margin: 0; line-height: 1.55; }
+    main { display: grid; gap: 22px; }
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      margin: 2px 4px 2px 0;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: var(--yellow-bg);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .tag.recommend { background: var(--green-bg); color: var(--green); }
+    .tag.experience { background: var(--purple-bg); color: var(--purple); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .panel,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .panel { padding: 16px; }
+    .card { overflow: hidden; }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .card-body {
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.7;
+    }
+    .route-days {
+      display: grid;
+      gap: 8px;
+    }
+    .day-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #e6ebf1;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .day-label {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .info-box {
+      padding: 10px;
+      border: 1px solid #e6ebf1;
+      border-radius: 8px;
+      background: #f8fafc;
+      font-size: 14px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 780px;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #e6ebf1;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f4f7;
+      font-weight: 800;
+    }
+    .table-panel { overflow-x: auto; }
+    .score {
+      font-weight: 900;
+      color: var(--accent);
+      font-size: 18px;
+    }
+    .safety {
+      background: #fffaf0;
+      border: 1px solid #f2dfb2;
+      color: #5f4b12;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    @media (max-width: 900px) {
+      .grid-2,
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 16px 12px; }
+      h1 { font-size: 24px; }
+      .card-head { display: grid; }
+      .day-row { grid-template-columns: 1fr; }
+      table { min-width: 720px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>JapanTrip2026 北海道路线方案比较</h1>
+      <div class="topline">
+        <p>六月中旬北海道 7 日家庭旅行：比较少换酒店版与体验更完整版。</p>
+        <p><span class="tag">花期需要人工确认</span><span class="tag">价格需要人工确认</span></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid-2">
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <h2>方案 A：少换酒店版</h2>
+            <p>主要住札幌，远郊用一日游或包车。</p>
+          </div>
+          <span class="tag recommend">推荐 4.5 / 5</span>
+        </div>
+        <div class="card-body">
+          <div class="meta-grid">
+            <div class="info-box"><span class="label">适合家庭</span>高。行李少动，临时调整弹性大。</div>
+            <div class="info-box"><span class="label">换酒店</span>0-1 次。温泉最后 1 晚可选。</div>
+            <div class="info-box"><span class="label">预算</span>较可控；包车会增加成本。</div>
+          </div>
+          <div class="route-days">
+            <div class="day-row"><div class="day-label">Day 1</div><p>抵达 CTS，入住札幌，狸小路或札幌站轻松散步。</p></div>
+            <div class="day-row"><div class="day-label">Day 2</div><p>札幌市区：大通公园、北海道大学或咖啡、白色恋人公园或购物。</p></div>
+            <div class="day-row"><div class="day-label">Day 3</div><p>小樽一日游：小樽运河、堺町通、音乐盒堂或甜点。</p></div>
+            <div class="day-row"><div class="day-label">Day 4</div><p>旭川一日游：旭山动物园，回札幌或简单旭川晚餐。</p></div>
+            <div class="day-row"><div class="day-label">Day 5</div><p>美瑛 / 富良野一日游或包车；薰衣草花期需要人工确认。</p></div>
+            <div class="day-row"><div class="day-label">Day 6</div><p>定山溪温泉候选，或继续住札幌做室内购物和休息。</p></div>
+            <div class="day-row"><div class="day-label">Day 7</div><p>札幌退房，最后购物，前往新千岁机场 CTS。</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <h2>方案 B：体验更完整版</h2>
+            <p>札幌 3 晚，旭川或富良野 1-2 晚，温泉 1 晚。</p>
+          </div>
+          <span class="tag experience">推荐 4 / 5</span>
+        </div>
+        <div class="card-body">
+          <div class="meta-grid">
+            <div class="info-box"><span class="label">适合家庭</span>中高。体验更丰富，但行李移动更多。</div>
+            <div class="info-box"><span class="label">换酒店</span>2-3 次。需要管理行李和退房时间。</div>
+            <div class="info-box"><span class="label">预算</span>通常更高；多地住宿和温泉需确认。</div>
+          </div>
+          <div class="route-days">
+            <div class="day-row"><div class="day-label">Day 1</div><p>抵达 CTS，入住札幌，札幌站或狸小路轻松散步。</p></div>
+            <div class="day-row"><div class="day-label">Day 2</div><p>札幌市区：大通公园、咖啡、白色恋人公园或购物。</p></div>
+            <div class="day-row"><div class="day-label">Day 3</div><p>小樽一日游，晚上回札幌。</p></div>
+            <div class="day-row"><div class="day-label">Day 4</div><p>前往旭川，旭山动物园，住旭川或富良野。</p></div>
+            <div class="day-row"><div class="day-label">Day 5</div><p>美瑛 / 富良野自然景色，住旭川或富良野；花期需要人工确认。</p></div>
+            <div class="day-row"><div class="day-label">Day 6</div><p>前往登别 / 洞爷湖 / 定山溪温泉，住温泉酒店。</p></div>
+            <div class="day-row"><div class="day-label">Day 7</div><p>温泉退房，前往新千岁机场 CTS。</p></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <h2>方案比较</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>比较项</th>
+            <th>方案 A：少换酒店版</th>
+            <th>方案 B：体验更完整版</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>适合家庭程度</td>
+            <td>高。行李少动、札幌 base 弹性大，适合带小朋友。</td>
+            <td>中高。体验更丰富，但换酒店和移动更多。</td>
+          </tr>
+          <tr>
+            <td>交通复杂度</td>
+            <td>中。市区和小樽简单，旭川 / 美瑛 / 富良野一日游需要规划。</td>
+            <td>中高。跨城市、温泉和机场衔接需要更细规划。</td>
+          </tr>
+          <tr>
+            <td>换酒店次数</td>
+            <td>0-1 次。最后温泉可选，不想折腾可继续住札幌。</td>
+            <td>2-3 次。札幌、旭川或富良野、温泉。</td>
+          </tr>
+          <tr>
+            <td>每天疲劳程度</td>
+            <td>大多数天较轻松，但旭川和美瑛 / 富良野日较累。</td>
+            <td>疲劳更平均，但搬酒店日会累。</td>
+          </tr>
+          <tr>
+            <td>预算影响</td>
+            <td>通常较可控；如果包车，远郊日成本会上升。</td>
+            <td>通常更高；多地住宿、温泉酒店和交通衔接需确认。</td>
+          </tr>
+          <tr>
+            <td>推荐指数</td>
+            <td><span class="score">4.5 / 5</span><br>优先推荐。</td>
+            <td><span class="score">4 / 5</span><br>适合想完整体验北海道的人。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid-2">
+      <article class="panel">
+        <h2>初步推荐</h2>
+        <p>优先推荐方案 A。它更符合家庭轻松游、不频繁换酒店、不想每天太早起的偏好。远郊日可以用包车或精选一日游来降低交通复杂度。</p>
+      </article>
+      <article class="panel">
+        <h2>方案 B 适合谁</h2>
+        <p>如果你们非常想把旭川、美瑛、富良野和温泉体验做完整，方案 B 更合适。但建议控制换酒店次数，不要再额外增加城市。</p>
+      </article>
+    </section>
+
+    <section class="safety">
+      <h2>需要人工确认</h2>
+      <ul>
+        <li>六月中旬薰衣草和其他花田花期。</li>
+        <li>新千岁机场 CTS 航班时间、价格和行李政策。</li>
+        <li>札幌、旭川 / 富良野、温泉酒店价格、房型、取消政策和洗衣设施。</li>
+        <li>旭山动物园营业时间、门票和交通。</li>
+        <li>美瑛 / 富良野是否包车、租车或参加一日游。</li>
+        <li>温泉酒店儿童政策、餐食、大浴场规则和接驳。</li>
+      </ul>
+      <p>本项目不保存护照号码、身份证号码、信用卡资料或订单号，不处理付款。</p>
+    </section>
+  </main>
+</body>
+</html>
